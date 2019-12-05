@@ -1,6 +1,8 @@
 package com.epam.izh.rd.online;
 
 import com.epam.izh.rd.online.entity.User;
+import com.epam.izh.rd.online.exception.SimplePasswordException;
+import com.epam.izh.rd.online.exception.UserAlreadyRegisteredException;
 import com.epam.izh.rd.online.repository.IUserRepository;
 import com.epam.izh.rd.online.repository.UserRepository;
 import com.epam.izh.rd.online.service.CurrentUserManager;
@@ -39,7 +41,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("Тест метода IUserService.register(User user) кейс 2")
-    void testRegisterCase2() {
+    void testRegisterCase2() throws UserAlreadyRegisteredException, SimplePasswordException {
         User user = Providers.getUser();
 
         userService.register(user);
